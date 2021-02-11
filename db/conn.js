@@ -1,13 +1,17 @@
 require('dotenv').config();
 const mongoose = require("mongoose");
 
-
-const MongoClient = require('mongodb').MongoClient;
-const uri = process.env.DATABASE_URL;
-const client = new MongoClient(uri, { useNewUrlParser: true,  useUnifiedTopology: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
+//const url = process.env.DATABASE_URL;
+const url = process.env.DATABASE_URL
+mongoose.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology:true,
+    useCreateIndex: true,
+    
+}).then(() => {
+    console.log("connect sucessful")
+}).catch((error) => {
+    console.log(error);
 });
 
+//mongodb+srv://wowhack:<wowhack>@cluster0.htofq.mongodb.net/<>?retryWrites=true&w=majority
