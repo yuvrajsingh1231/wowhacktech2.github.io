@@ -14,4 +14,3 @@ mongoose.connect(url, {
     console.log(error);
 });
 
-//mongodb+srv://wowhack:<wowhack>@cluster0.htofq.mongodb.net/<>?retryWrites=true&w=majority
